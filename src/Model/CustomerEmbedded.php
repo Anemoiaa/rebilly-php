@@ -36,9 +36,9 @@ class CustomerEmbedded implements JsonSerializable
         return $this->fields['leadSource'] ?? null;
     }
 
-    public function setLeadSource(null|object $leadSource): static
+    public function setLeadSource(null|object|array $leadSource): static
     {
-        $this->fields['leadSource'] = $leadSource;
+        $this->fields['leadSource'] = new LeadSource($leadSource);
 
         return $this;
     }
